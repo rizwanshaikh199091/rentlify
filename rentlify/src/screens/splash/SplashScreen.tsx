@@ -2,20 +2,21 @@ import React from 'react';
 import {View, StyleSheet, Image, Text, TouchableOpacity} from 'react-native';
 import {IMAGES} from '../../images';
 import {COLORS} from '../../colors/index.color';
-import { useNavigation } from '@react-navigation/native';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import {useNavigation} from '@react-navigation/native';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import ThemeSafeAreaView from '../../ui/theme-safe-area-view/ThemeSafeAreaView';
+import Button from '../../ui/button/Button';
 
 const SplashScreen = () => {
-
   const navigation =
-  useNavigation<NativeStackNavigationProp<TAuthNavigatorParams>>();
+    useNavigation<NativeStackNavigationProp<TAuthNavigatorParams>>();
 
   const navigateToLogin = () => {
     navigation.navigate('LoginScreen');
   };
 
   return (
-    <View style={styles.container}>
+    <ThemeSafeAreaView>
       <View style={styles.centered}>
         <View style={styles.imageContainer}>
           <Image style={styles.img} source={IMAGES.Logo} />
@@ -25,26 +26,24 @@ const SplashScreen = () => {
           <Text style={styles.appName}>Welcome To Rentlify</Text>
           <Text style={styles.description}>
             Find the tenant, list your property in just a simple steps, in your
-            hand. 
+            hand.
           </Text>
         </View>
+        
       </View>
-      <TouchableOpacity style={styles.button} onPress={navigateToLogin}>
-        <Text style={styles.buttonText}>Get started</Text>
-      </TouchableOpacity>
-    </View>
+      <View style={styles.buttonContainer}>
+          <Button title="Send OTP" onPress={navigateToLogin} />
+        </View>
+    </ThemeSafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'white',
-    padding: 20,
-  },
   centered: {
     flex: 1,
     alignItems: 'center',
+    backgroundColor: COLORS.whiteSmoke,
+    padding: 20,
   },
   imageContainer: {
     padding: 10,
@@ -58,13 +57,16 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 25,
     fontWeight: '500',
-    fontStyle:"italic",
+    fontStyle: 'italic',
     color: COLORS.secondaryBlue,
     marginBottom: 5,
   },
   textContainer: {
     flex: 1,
     justifyContent: 'flex-start',
+  },
+  buttonContainer: {
+    margin: 26,
   },
   appName: {
     fontSize: 40,
@@ -81,13 +83,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
     marginBottom: 40,
   },
-  button: {
-    backgroundColor: COLORS.primary,
-    paddingVertical: 15,
-    paddingHorizontal: 40,
-    borderRadius: 25,
-    marginBottom: 60,
-  },
+
   buttonText: {
     fontSize: 18,
     fontWeight: '600',

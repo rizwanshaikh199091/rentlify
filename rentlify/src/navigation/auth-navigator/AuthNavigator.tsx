@@ -3,10 +3,11 @@ import {
   createNativeStackNavigator,
   NativeStackNavigationProp,
 } from '@react-navigation/native-stack';
-import VerifyOTPScreen from '../../screens/verifyotp/VerifyOTPScreen';
+
 import LoginScreen from '../../screens/login/LoginScreen';
 import SignUpScreen from '../../screens/signUp/SignUpScreen';
 import SplashScreen from '../../screens/splash/SplashScreen';
+import VerifyOTPScreen from '../../screens/verifyotp/VerifyOTPScreen';
 
 const AuthNavigator = () => {
   const Stack = createNativeStackNavigator<TAuthNavigatorParams>();

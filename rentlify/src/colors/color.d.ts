@@ -1,3 +1,3 @@
 import {COLORS} from './index.colors';
 
-type TColors = keyof typeof COLORS;
+export type TColors = keyof typeof COLORS;

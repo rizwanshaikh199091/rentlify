@@ -1,3 +1,4 @@
+export type TColors = 'primary' | 'secondaryBlue' | 'white' | 'whiteSmoke' | 'textWhite' | 'black' | 'gold' | 'success' | 'error' | 'grey' | 'placeholder' | 'grey787878' | 'danger';
 
 export const COLORS = {
     primary: '#22215B',
