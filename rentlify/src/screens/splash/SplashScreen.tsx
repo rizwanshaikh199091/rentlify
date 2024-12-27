@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, StyleSheet, Image, Text, TouchableOpacity} from 'react-native';
+import {View, StyleSheet, Image, Text} from 'react-native';
 import {IMAGES} from '../../images';
 import {COLORS} from '../../colors/index.color';
 import {useNavigation} from '@react-navigation/native';
@@ -17,32 +17,36 @@ const SplashScreen = () => {
 
   return (
     <ThemeSafeAreaView>
-      <View style={styles.centered}>
-        <View style={styles.imageContainer}>
-          <Image style={styles.img} source={IMAGES.Logo} />
-        </View>
+      <View style={styles.container}>
+        <View style={styles.centered}>
+          <View style={styles.imageContainer}>
+            <Image style={styles.img} source={IMAGES.Logo} />
+          </View>
 
-        <View style={styles.textContainer}>
-          <Text style={styles.appName}>Welcome To Rentlify</Text>
-          <Text style={styles.description}>
-            Find the tenant, list your property in just a simple steps, in your
-            hand.
-          </Text>
+          <View style={styles.textContainer}>
+            <Text style={styles.appName}>Welcome To Rentlify</Text>
+            <Text style={styles.description}>
+              Find the tenant, list your property in just a simple steps, in
+              your hand.
+            </Text>
+          </View>
         </View>
-        
+        <View style={styles.buttonContainer}>
+          <Button title="Continue To Rentlify" onPress={navigateToLogin} />
+        </View>
       </View>
-      <View style={styles.buttonContainer}>
-          <Button title="Send OTP" onPress={navigateToLogin} />
-        </View>
     </ThemeSafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
+  container: {
+    flex:1,
+    backgroundColor: COLORS.whiteSmoke,
+  },
   centered: {
     flex: 1,
     alignItems: 'center',
-    backgroundColor: COLORS.whiteSmoke,
     padding: 20,
   },
   imageContainer: {

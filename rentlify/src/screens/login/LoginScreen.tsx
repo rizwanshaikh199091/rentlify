@@ -6,8 +6,6 @@ import Typography from '../../ui/typography/Typography';
 import InputText from '../../ui/input-text/InputText';
 import Button from '../../ui/button/Button';
 import { COLORS } from '../../colors/index.color';
-import CustomCarousel from '../../ui/custom-carousel/CustomCarousel';
-import { loginBannerData } from '../../utils/loginBannerData';
 import { useForm } from 'react-hook-form';
 import { object, string } from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -38,33 +36,29 @@ const LoginScreen = () => {
     };
 
 
-  const { control, handleSubmit, formState: { errors } } = useForm({
+  const { control} = useForm({
     defaultValues: {
       mobile: '',
     },
     resolver: yupResolver(LOGIN),
   });
 
-  const onSubmit = (data: any) => {
-    
-  };
 
   return (
     <ThemeScrollView>
-      <CustomCarousel data={loginBannerData} height={320} autoPlay />
+     <Image source={IMAGES.LoginBanner} style={styles.image} />
       <View style={styles.root}>
         <WidthContainer>
           <View style={styles.container}>
             <View>
               <Typography variant="title" style={styles.title}>
-                Let’s get started
+                Welcome Back to Rentlify
               </Typography>
               <InputText
                 keyboardType="numeric"
                 control={control}
                 name="mobile"
                 placeholder="Mobile Number"
-              
               />
             </View>
 
@@ -87,9 +81,19 @@ const LoginScreen = () => {
                 <Typography variant="description16" color="grey787878">
                   Login with Google
                 </Typography>
+                
+              </TouchableOpacity>
+             
+
+              <TouchableOpacity style={styles.SignUpContainer} onPress={() => navigation.navigate('SignUpScreen')}>
+                <Typography variant="description16" color="grey787878">
+                  You Don`t Have an Account ? 
+                </Typography>
+                <Typography variant="description16" color="primary">
+                   {' '}Register Now
+                </Typography>
               </TouchableOpacity>
             </View>
-            
           </View>
         </WidthContainer>
       </View>
@@ -106,6 +110,10 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 20,
     marginTop: -20,
     flex: 1,
+  },
+  image: {
+    width: '100%',
+    height: '30%',
   },
   container: {
     justifyContent: 'space-between',
@@ -136,5 +144,13 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     borderColor: '#e2e2e2',
     borderWidth: 1,
+  },
+  SignUpContainer: {
+    marginTop:10,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingVertical: 12,
+    borderRadius: 8
   },
 });
