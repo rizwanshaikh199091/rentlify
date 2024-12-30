@@ -6,7 +6,7 @@ type LoginState = {
 };
 
 const initialState: LoginState = {
-  status: 'logout',
+  status: 'loggedIn',
 };
 
 const authSlice = createSlice({

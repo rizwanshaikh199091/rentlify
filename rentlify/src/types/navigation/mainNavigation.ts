@@ -1,0 +1,3 @@
+type TMainNavigatorParams = {
+    HomeScreen: undefined;
+};

@@ -3,5 +3,6 @@ type TAuthNavigatorParams = {
     LoginScreen: undefined;
     SignUpScreen: undefined;
     VerifyOTP:undefined;
+    WelcomeScreen:undefined
   };
   

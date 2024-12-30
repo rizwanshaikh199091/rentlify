@@ -1,16 +1,17 @@
-import React from 'react';
-import { createDrawerNavigator } from '@react-navigation/drawer';
-import HomeScreen from '../../screens/home/HomeScreen';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import { TabNavigator } from './TabNavigation';
 
-
-const Drawer = createDrawerNavigator();
-
-const DrawerNavigation = () => {
+const App = () => {
+  const Stack = createNativeStackNavigator<TMainNavigatorParams>();
   return (
-    <Drawer.Navigator>
-      <Drawer.Screen name="HomeScreen" component={HomeScreen} />
-    </Drawer.Navigator>
+    <Stack.Navigator initialRouteName="HomeScreen">
+      <Stack.Screen
+        name="HomeScreen"
+        component={TabNavigator}
+        options={{headerShown: false}}
+      />
+    </Stack.Navigator>
   );
 };
 
-export default DrawerNavigation;
+export default App;
