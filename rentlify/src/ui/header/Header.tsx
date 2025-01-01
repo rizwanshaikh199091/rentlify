@@ -1,33 +1,33 @@
 import React from 'react';
-import {View, TouchableOpacity, StyleSheet, Text} from 'react-native';
-import {useNavigation} from '@react-navigation/native';
-import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import { View, TouchableOpacity, StyleSheet, Text } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/Ionicons';
+import { DrawerNavigationProp } from '@react-navigation/drawer';
+import { COLORS } from '../../colors/index.color';
 
 interface HeaderProps {
   title?: string;
 }
 
-const HeaderBar: React.FC<HeaderProps> = ({title}) => {
-  const navigation =
-    useNavigation<NativeStackNavigationProp<TAuthNavigatorParams>>();
+const HeaderBar: React.FC<HeaderProps> = ({ title }) => {
+  const navigation = useNavigation<DrawerNavigationProp<TMainNavigatorParams>>();
 
 
   return (
     <View style={styles.headerContainer}>
       <View style={styles.headingContainer}>
         <TouchableOpacity
-          onPress={() => navigation.goBack()}
-          style={styles.backButton}>
-          <Icon name="arrow-back" size={22} color="#fff" />
+          onPress={() => navigation.openDrawer()} 
+          style={styles.menuButton}>
+          <Icon name="menu" size={24} color="#fff" />
         </TouchableOpacity>
         {title && (
-          <View >
+          <View>
             <Text style={styles.title}>{title}</Text>
           </View>
         )}
       </View>
-      <TouchableOpacity onPress={()=>{}} style={styles.logoutButton}>
+      <TouchableOpacity onPress={() => {}} style={styles.logoutButton}>
         <Icon name="exit" size={24} color="#fff" />
       </TouchableOpacity>
     </View>
@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    backgroundColor: '#F00F89',
+    backgroundColor: COLORS.primary,
     paddingHorizontal: 20,
     paddingVertical: 10,
     height: 60,
@@ -49,15 +49,18 @@ const styles = StyleSheet.create({
   },
   headingContainer: {
     flexDirection: 'row',
-    alignItems:"center"
+    alignItems: 'center',
   },
   title: {
-    paddingLeft:10,
+    paddingLeft: 10,
     color: '#fff',
-    fontSize: 20,
-    fontWeight:"500"
+    fontSize: 18,
+    fontWeight: '500',
   },
   backButton: {
+    padding: 5,
+  },
+  menuButton: {
     padding: 5,
   },
   logoutButton: {

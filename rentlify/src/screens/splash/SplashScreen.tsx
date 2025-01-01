@@ -11,7 +11,7 @@ const SplashScreen = () => {
     useNavigation<NativeStackNavigationProp<TAuthNavigatorParams>>();
 
   const navigateToLogin = () => {
-    navigation.navigate('WelcomeScreen');
+    navigation.navigate('LoginScreen');
   };
 
   React.useEffect(() => {

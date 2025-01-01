@@ -5,8 +5,8 @@ import LoginBanner from './login-banner.png';
 import googleLogo from './google-logo.png';
 import faceBookLogo from './facebook.png';
 import vectorImage from './vector-image.png';
-import tenant from './tenant.png';
-import landloard from './landlord.png'
+import person from './person.png'
+
 export const IMAGES = {
   Logo,
   DownArrow,
@@ -15,6 +15,5 @@ export const IMAGES = {
   googleLogo,
   faceBookLogo,
   vectorImage,
-  tenant,
-  landloard
+  person
 };
