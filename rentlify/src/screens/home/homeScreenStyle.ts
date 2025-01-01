@@ -29,8 +29,8 @@ export const styles = StyleSheet.create({
       top: 0,
       right: 0,
       padding: 8,
-      borderTopRightRadius: 16,
-      borderBottomLeftRadius: 16,
+      borderTopRightRadius: 14,
+      borderBottomLeftRadius: 14,
     },
     cardHeader: {
       flexDirection: 'row',
