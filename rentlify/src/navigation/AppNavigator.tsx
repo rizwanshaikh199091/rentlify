@@ -1,3 +1,4 @@
+import React from 'react';
 import { useAppSelector } from '../redux/hook';
 import ForceUpdate from '../screens/forceUpdate/ForceUpdate';
 import SplashScreen from '../screens/splash/SplashScreen';
@@ -6,18 +7,18 @@ import DrawerNavigation from './drawer-navigator/DrawerNavigator';
 
 const AppNavigator = () => {
   const loginState = useAppSelector((state) => state.login.status);
-  console.log(loginState);
+
   switch (loginState) {
     case 'authenticating':
-      return <SplashScreen/>; 
+      return <SplashScreen />;
     case 'loggedIn':
       return <DrawerNavigation />;
     case 'logout':
-      return <AuthNavigator />; 
+      return <AuthNavigator />;
     case 'forceUpdate':
-      return <ForceUpdate />; 
+      return <ForceUpdate />;
     default:
-      return <AuthNavigator />; 
+      return <AuthNavigator />;
   }
 };
 

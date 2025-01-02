@@ -5,7 +5,6 @@ import {COLORS} from '../../colors/index.color';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import ThemeSafeAreaView from '../../ui/theme-safe-area-view/ThemeSafeAreaView';
-import Button from '../../ui/button/Button';
 
 const SplashScreen = () => {
   const navigation =
@@ -14,6 +13,14 @@ const SplashScreen = () => {
   const navigateToLogin = () => {
     navigation.navigate('LoginScreen');
   };
+
+  React.useEffect(() => {
+    const timer = setTimeout(() => {
+      navigateToLogin();
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <ThemeSafeAreaView>
@@ -31,9 +38,7 @@ const SplashScreen = () => {
             </Text>
           </View>
         </View>
-        <View style={styles.buttonContainer}>
-          <Button title="Continue To Rentlify" onPress={navigateToLogin} />
-        </View>
+          <Image source={IMAGES.vectorImage} style={styles.illustration} />
       </View>
     </ThemeSafeAreaView>
   );
@@ -88,11 +93,11 @@ const styles = StyleSheet.create({
     marginBottom: 40,
   },
 
-  buttonText: {
-    fontSize: 18,
-    fontWeight: '600',
-    color: 'white',
-    textAlign: 'center',
+  illustration: {
+    width: '100%',
+    height: 350,
+    resizeMode: 'contain',
+    marginTop: 'auto',
   },
 });
 
